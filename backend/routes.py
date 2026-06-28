@@ -1,4 +1,5 @@
-from flask import Blueprint
+from flask import Blueprint, request, jsonify
+from backend.image_generator import generate_image
 
 # Create Blueprint
 main = Blueprint("main", __name__)
@@ -33,7 +34,7 @@ def generate():
         filename = generate_image(prompt)
 
         # Return JSON
-        return jsoexitnify({
+        return jsonify({
             "success": True,
             "image": f"/outputs/{filename}"
         }), 200
