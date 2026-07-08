@@ -40,6 +40,8 @@ def generate():
         }), 200
 
     except Exception as e:
+        print(e)
+
         return jsonify({
             "success": False,
             "error": str(e)
